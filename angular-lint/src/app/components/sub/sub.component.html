@@ -1,4 +1,5 @@
 <div>
-    <p>Select from dropdown to decide which request to send</p>
-    <p-dropdown [options]="endPointCollection" optionLabel="name" (onChange)="handleChangeSelected($event)"></p-dropdown>
+    <p>Select from dropdown to decide which request to send <p-dropdown [options]="endPointCollection" optionLabel="name" (onChange)="handleChangeSelected($event)" [(ngModel)]="selected"></p-dropdown></p>
+    <p-divider></p-divider>
+    <p-button label="Submit" (click)="handleClick()"></p-button>
 </div>

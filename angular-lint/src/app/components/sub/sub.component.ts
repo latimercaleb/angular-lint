@@ -13,14 +13,23 @@ export class SubComponent implements OnInit {
 
   ngOnInit(): void {
     this.endPointCollection = [
-      // Pull from previous example
-      {route: 'https://api.spacexdata.com/v4/cores',code: 'SP',name: 'Space X'},
-      {route: 'https://pokeapi.co/api/v2/location/', code:'PK', name: 'Pokemon'}
+      {route: 'https://api.spacexdata.com/v4/ships',code: 'SP',name: 'Space X'},
+      {route: 'https://pokeapi.co/api/v2/location/', code:'PK', name: 'Pokemon'},
+      {route: 'https://botw-compendium.herokuapp.com/api/v2/category/materials', code: 'HY', name: 'Hyrule Compendium'}
     ];
+    this.selected = this.endPointCollection[0];
   }
 
   handleChangeSelected(evt){
     console.log(evt);
+  }
+
+  handleClick(){
+    console.log(this.selected);
+  }
+
+  extractCode(): string{
+    return this.selected.code;
   }
 
 }
