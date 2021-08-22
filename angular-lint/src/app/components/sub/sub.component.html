@@ -1,1 +1,4 @@
-<p>sub works!</p>
+<div>
+    <p>Select from dropdown to decide which request to send</p>
+    <p-dropdown [options]="endPointCollection" optionLabel="name" (onChange)="handleChangeSelected($event)"></p-dropdown>
+</div>
