@@ -15,6 +15,7 @@ import {ButtonModule} from 'primeng/button';
 import {DividerModule} from 'primeng/divider';
 import {ToolbarModule} from 'primeng/toolbar';
 import {CardModule} from 'primeng/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {CardModule} from 'primeng/card';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,AvatarModule,AvatarGroupModule,BadgeModule,DropdownModule,FormsModule,ButtonModule,DividerModule,ToolbarModule, 
-    CardModule
+    CardModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

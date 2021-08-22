@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { EndPoints } from 'src/app/models/endPoints.model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-sub',
@@ -9,13 +11,12 @@ import { EndPoints } from 'src/app/models/endPoints.model';
 export class SubComponent implements OnInit {
   selected: EndPoints;
   endPointCollection: EndPoints[];
-  constructor() { }
+  constructor(private service: DataService) { }
 
   ngOnInit(): void {
     this.endPointCollection = [
-      {route: 'https://api.spacexdata.com/v4/ships',code: 'SP',name: 'Space X'},
-      {route: 'https://pokeapi.co/api/v2/location/', code:'PK', name: 'Pokemon'},
-      {route: 'https://botw-compendium.herokuapp.com/api/v2/category/materials', code: 'HY', name: 'Hyrule Compendium'}
+      {code: 'SP',name: 'Space X'},
+      {code: 'HY', name: 'Hyrule Compendium'}
     ];
     this.selected = this.endPointCollection[0];
   }
@@ -25,7 +26,13 @@ export class SubComponent implements OnInit {
   }
 
   handleClick(){
-    console.log(this.selected);
+    const code = this.extractCode();
+    switch(code){
+      case 'SP':
+        return this.service.getSpaceX().subscribe();
+      case 'HY': 
+        return this.service.getZelda().subscribe();
+    }
   }
 
   extractCode(): string{
