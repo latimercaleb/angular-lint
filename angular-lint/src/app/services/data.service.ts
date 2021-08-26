@@ -9,7 +9,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  // Check work-top for obs setup apply here for these 3
   getSpaceX(){
     const route = 'https://api.spacexdata.com/v4/ships';
     return this.http.get(route).pipe(
@@ -44,10 +43,9 @@ export class DataService {
             detail: `Found in ${element.common_locations.split(',')}. ${element.description} heals for ${element.hearts_recovered} hearts`  
           }
           cardData.push(card);
-      });
-      return cardData
-      );
-      );
-
+        });
+        return cardData;
+      })
+    );
   }
 }
